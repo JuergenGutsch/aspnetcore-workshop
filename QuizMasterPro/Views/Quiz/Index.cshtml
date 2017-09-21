@@ -1,0 +1,26 @@
+﻿@using QuizMasterPro.ViewModels.QuizViewModels
+@model QuizesListViewModel
+@{
+    ViewData["Title"] = "All Quizes";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="quiz-list">
+            @foreach (var quiz in Model.Quizzes)
+            {
+                <li>
+                    <h4>@quiz.Title</h4>
+                    <p>@quiz.Created.ToShortDateString()</p>
+                    <p><a asp-controller="Quiz" asp-action="Show" asp-route-id="@quiz.Id">Show quiz</a></p>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

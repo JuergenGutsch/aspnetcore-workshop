@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - QuizMasterPro</title>
+    <title>@ViewData["Title"] - Quiz Master Pro</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,13 +26,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">QuizMasterPro</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Quiz Master Pro</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Quiz" asp-action="Index">Quizes</a></li>
+                    <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -42,7 +42,14 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2017 - QuizMasterPro</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; @System.DateTime.Now.Year - Quiz Master Pro</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    @await Html.PartialAsync("_SelectLanguagePartial")
+                </div>
+            </div>
         </footer>
     </div>
 

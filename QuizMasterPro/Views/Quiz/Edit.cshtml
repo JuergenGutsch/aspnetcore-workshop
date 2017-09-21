@@ -1,0 +1,23 @@
+﻿@using QuizMasterPro.ViewModels.QuizViewModels
+@model EditQuizViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+<h1>@Model.Title</h1>
+
+<form asp-action="Edit" asp-controller="Quiz" asp-route-id="@Model.Id">
+    <p>
+        <label asp-for="@Model.Title">Title</label><br />
+        <input type="text" asp-for="@Model.Title" />
+        <span asp-validation-for="@Model.Title" />
+    </p>
+    <p>
+        <label asp-for="@Model.Description">Description</label><br />
+        <textarea asp-for="@Model.Description"></textarea>
+        <span asp-validation-for="@Model.Description" />
+    </p>
+    <p>
+        <a asp-action="Index" asp-controller="Quiz" class="btn">Back to list</a>
+        <button type="submit" class="btn btn-primary">Speichern</button>
+    </p>
+</form>

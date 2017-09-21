@@ -1,0 +1,37 @@
+﻿@using QuizMasterPro.ViewModels.QuizViewModels
+@model ProcessQuizViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h1>@Model.Title</h1>
+<p>@Model.Description</p>
+<p>Erstellt: @Model.Created.ToString("dd.MM.yyyy"); Anzahl Fragen: @(Model.Questions?.Count() ?? 0)</p>
+
+<form method="post" class="form form-horizontal"
+      asp-action="Answer" asp-controller="Quiz" asp-route-id="@Model.Id">
+    <ul>
+        @foreach (var question in Model.Questions)
+        {
+            var type = question.Single ? "radio" : "checkbox";
+            <li>
+                <h3>@question.Title?</h3>
+                <ul>
+                    @foreach (var answer in question.Answers)
+                    {
+                        <li>
+                            <input type="@type" id="answer-@question.Id-@answer.Id"
+                                   name="answer-@question.Id" value="@answer.Id" ) />
+                            <label for="answer-@question.Id-@answer.Id">@answer.Value</label>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+
+    <p>
+        <a asp-action="Index" asp-controller="Quiz" class="btn">Back to list</a>
+        <button type="submit" class="btn btn-primary">Speichern</button>
+    </p>
+</form>

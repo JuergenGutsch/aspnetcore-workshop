@@ -33,3 +33,26 @@
         display: none;
     }
 }
+
+ul.quiz-list, ul.quiz-list li {
+    list-style: none;
+    margin: 4px 0;
+    padding: 0;
+}
+
+    ul.quiz-list li {
+        padding: 4px;
+        margin: 4px 0;
+        border: 1px solid grey;
+    }
+        ul.quiz-list li:hover {
+            background-color: #EEEEEE;
+        }
+
+        ul.quiz-list li h4 {
+            display: block;
+            background-color: #CCEEFF;
+            padding: 4px;
+            margin: -4px;
+            margin-bottom: inherit;
+        }

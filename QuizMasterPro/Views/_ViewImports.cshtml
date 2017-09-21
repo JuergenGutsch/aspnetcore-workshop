@@ -1,6 +1,9 @@
 @using Microsoft.AspNetCore.Identity
 @using QuizMasterPro
+@using QuizMasterPro.Authorization
 @using QuizMasterPro.Models
 @using QuizMasterPro.Models.AccountViewModels
 @using QuizMasterPro.Models.ManageViewModels
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService

@@ -1,0 +1,24 @@
+﻿@using QuizMasterPro.ViewModels.QuizViewModels
+@model ShowQuizViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h1>@Model.Title</h1>
+
+<p>@Model.Description</p>
+
+<p>Erstellt: @Model.Created.ToString("dd.MM.yyyy"); Anzahl Fragen: @Model.QuestionsCount</p>
+<p>
+    <a asp-action="Index" asp-controller="Quiz" class="btn">Back to list</a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Process" asp-controller="Quiz" asp-route-id="@Model.Id" class="btn btn-primary">Start quiz</a>
+
+    }
+</p>
+
+@if (User.IsInRole(Constants.QuizAdministratorsRole))
+{
+    <p><a asp-action="Edit" asp-controller="Quiz" asp-route-id="@Model.Id" class="btn btn-primary">Edit quiz</a></p>
+}
